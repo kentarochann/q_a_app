@@ -27,7 +27,7 @@
                     @foreach($answers as $answer)
                         <div class="border rounded mb-2 p-3">
                             <div>{{ $answer->content }}</div>
-                            <div class="d-flex justify-content-end">
+                            {{-- <div class="d-flex justify-content-end">
                                 <form action="{{ route('questions.destroy') }}" method="delete" class="pt-3">
                                     @csrf
                                     <div>
@@ -35,7 +35,7 @@
                                     </div>
                                 </form>
                                 {{ $answer->formatted_created_at }}
-                            </div>
+                            </div> --}}
                         </div>
                     @endforeach
                 </div>
