@@ -8,7 +8,16 @@
                 <div class="pl-5">
                     <div>{{ $question->content }}</div>
                 </div>
-                <div class="d-flex justify-content-end pr-3">{{ $question->formatted_created_at }}</div>
+                <form action="{{ route('questions.destroy', $question->id) }}" method="POST" class="d-flex justify-content-end">
+                    @method('DELETE')
+                    @csrf
+                    <div>
+                        <button type="submit" class="btn btn-danger btn-sm">質問を削除する</button>
+                    </div>
+                </form>
+                <div class="d-flex justify-content-end pr-3">
+                    {{ $question->formatted_created_at }}
+                </div>
             </div>
         </div>
         <div class="p-3 bg-light">
@@ -18,7 +27,15 @@
                     @foreach($answers as $answer)
                         <div class="border rounded mb-2 p-3">
                             <div>{{ $answer->content }}</div>
-                            <div class="d-flex justify-content-end">{{ $answer->formatted_created_at }}</div>
+                            <div class="d-flex justify-content-end">
+                                <form action="{{ route('questions.destroy') }}" method="delete" class="pt-3">
+                                    @csrf
+                                    <div>
+                                        <button type="submit" class="btn btn-danger">回答を削除する</button>
+                                    </div>
+                                </form>
+                                {{ $answer->formatted_created_at }}
+                            </div>
                         </div>
                     @endforeach
                 </div>
