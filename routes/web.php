@@ -12,5 +12,5 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/', [QuestionController::class, 'index'])->name('questions.index');
-Route::resource('questions', QuestionController::class)->only(['show', 'create', 'store']);
-Route::resource('questions.answers', AnswerController::class)->only(['create', 'store']);
+Route::resource('questions', QuestionController::class)->only(['show', 'create', 'store', 'destroy']);
+Route::resource('questions.answers', AnswerController::class)->only(['create', 'store', 'destroy']);

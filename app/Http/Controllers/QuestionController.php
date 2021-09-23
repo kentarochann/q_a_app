@@ -49,4 +49,13 @@ class QuestionController extends Controller
 
         return redirect()->route('questions.index');
     }
+
+    public function destroy($id)
+    {
+        $question = Question::findOrFail($id);
+
+        $question->answers()->delete();
+        $question->delete();
+        return redirect()->route('questions.index');
+    }
 }
