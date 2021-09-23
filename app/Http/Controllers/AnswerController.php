@@ -29,4 +29,13 @@ class AnswerController extends Controller
 
         return redirect()->route('questions.show', ['question' => $answer->question_id]);
     }
+
+    public function destroy($question_id, $answer_id)
+    {
+        $answer = Answer::findOrFail($answer_id);
+        $question = Question::findOrFail($question_id);
+
+        $answer->delete();
+        return redirect()->route('questions.show', ['question' => $question->id]);
+    }
 }

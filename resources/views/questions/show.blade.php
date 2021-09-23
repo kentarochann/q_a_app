@@ -8,16 +8,19 @@
                 <div class="pl-5">
                     <div>{{ $question->content }}</div>
                 </div>
-                <form action="{{ route('questions.destroy', $question->id) }}" method="POST" class="d-flex justify-content-end">
-                    @method('DELETE')
-                    @csrf
-                    <div>
-                        <button type="submit" class="btn btn-danger btn-sm">質問を削除する</button>
-                    </div>
-                </form>
-                <div class="d-flex justify-content-end pr-3">
+                <div class="d-flex justify-content-end">
+                    <div class="pr-3">
                     {{ $question->formatted_created_at }}
+                    </div>
+                    <form action="{{ route('questions.destroy', $question->id) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <div>
+                            <button type="submit" class="btn btn-danger btn-sm">質問を削除する</button>
+                        </div>
+                    </form>
                 </div>
+
             </div>
         </div>
         <div class="p-3 bg-light">
@@ -27,15 +30,18 @@
                     @foreach($answers as $answer)
                         <div class="border rounded mb-2 p-3">
                             <div>{{ $answer->content }}</div>
-                            {{-- <div class="d-flex justify-content-end">
-                                <form action="{{ route('questions.destroy') }}" method="delete" class="pt-3">
+                            <div class="d-flex justify-content-end">
+                                <div class="pr-3">
+                                    {{ $answer->formatted_created_at }}
+                                </div>
+                                <form action="{{ route('questions.answers.destroy', ['question' => $answer->question_id, 'answer' => $answer->id]) }}" method="POST">
+                                    @method('DELETE')
                                     @csrf
                                     <div>
-                                        <button type="submit" class="btn btn-danger">回答を削除する</button>
+                                        <button type="submit" class="btn btn-danger btn-sm">回答を削除する</button>
                                     </div>
                                 </form>
-                                {{ $answer->formatted_created_at }}
-                            </div> --}}
+                            </div>
                         </div>
                     @endforeach
                 </div>

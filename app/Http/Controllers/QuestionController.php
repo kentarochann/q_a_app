@@ -20,13 +20,13 @@ class QuestionController extends Controller
     }
 
     //$question_idを受け取ってる
-    public function show($id)
+    public function show($question_id)
     {
         // findOrFailは$question_idがなければ４０４を返す
-        $question = Question::findOrFail($id);
+        $question = Question::findOrFail($question_id);
 
         // Questionモデルのリレーションメソッドが定義してあるので、answersプロパティにアクセスする
-        $answers = Question::find($id)->answers;
+        $answers = Question::find($question_id)->answers;
 
         return view('questions.show', [
             'question' => $question,
