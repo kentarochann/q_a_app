@@ -32,10 +32,10 @@
                 <div>
                     <button type="submit" class="btn btn-light">質問する</button>
                 </div>
-                <div class="pt-3">
-                    <a href="{{ route('questions.index') }}">←質問一覧に戻る</a>
-                </div>
             </form>
+            <div class="pt-3">
+                <a href="{{ route('questions.index') }}">←質問一覧に戻る</a>
+            </div>
         </div>
     </div>
 @endsection

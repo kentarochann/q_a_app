@@ -12,6 +12,11 @@
                     <div class="pr-3">
                     {{ $question->formatted_created_at }}
                     </div>
+                    <div>
+                        <a href="{{ route('questions.edit', ['question' => $question->id]) }}">
+                            <button type="submit" class="btn btn-info btn-sm mr-3">質問を編集する</button>
+                        </a>
+                    </div>
                     <form action="{{ route('questions.destroy', $question->id) }}" method="POST">
                         @method('DELETE')
                         @csrf
@@ -20,7 +25,6 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
         <div class="p-3 bg-light">
