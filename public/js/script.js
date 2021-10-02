@@ -1,11 +1,13 @@
-document.getElementById("display").style.display = "none";
+// const visual = document.getElementById("");
+// visual.style.display = "none";
 
-const displayBtn = () => {
-    const display = document.getElementById("display");
-
-    if (display.style.display == "block") {
-        display.style.display = "none";
+// bladeからanswerのidを受け取っている
+const displayBtn = (answer_id) => {
+    const visual = document.getElementById(answer_id);
+    // console.log(visual);
+    if (visual.style.display == "none") {
+        visual.style.display = "block";
     } else {
-        display.style.display = "block";
+        visual.style.display = "none";
     }
 };

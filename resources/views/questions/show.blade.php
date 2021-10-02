@@ -53,7 +53,7 @@
                                 @endif
                             </div>
                             {{-- 回答編集のフォーム --}}
-                            <div id="display">
+                            <div id="{{$answer->id}}" style="display: none;">
                                 <form action="{{ route('questions.answers.update', ['question' => $answer->question_id, 'answer' => $answer->id]) }}" method="POST">
                                     @method('PATCH')
                                     @csrf
@@ -69,7 +69,7 @@
 
                             <div class="d-flex justify-content-end">
                                 {{-- 回答編集画面の表示 --}}
-                                <button class="btn btn-info btn-sm mr-3" onclick="displayBtn()" >回答を編集する</button>
+                                <button class="btn btn-info btn-sm mr-3" onclick="displayBtn('{{$answer->id}}')" >回答を編集する</button>
                                 {{-- 回答を削除する --}}
                                 <form action="{{ route('questions.answers.destroy', ['question' => $answer->question_id, 'answer' => $answer->id]) }}" method="POST">
                                     @method('DELETE')
