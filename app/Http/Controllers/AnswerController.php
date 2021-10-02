@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AnswerRequest;
+use App\Http\Requests\EditAnswer;
 use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Http\Request;
@@ -24,10 +25,19 @@ class AnswerController extends Controller
         $answer = new Answer();
         $answer->question_id = $request->question;
         $answer->content = $request->content;
-        // dd($answer);
         $answer->save();
 
         return redirect()->route('questions.show', ['question' => $answer->question_id]);
+    }
+
+    public function update($question_id, $answer_id, EditAnswer $request)
+    {
+        $answer = Answer::findOrFail($answer_id);
+
+        $answer->content = $request->content;
+        $answer->save();
+
+        return redirect()->route('questions.show', ['question' => $question_id]);
     }
 
     public function destroy($question_id, $answer_id)

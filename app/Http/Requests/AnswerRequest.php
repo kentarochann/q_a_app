@@ -28,10 +28,17 @@ class AnswerRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function attributes()
     {
-        return[
-            'content.required' => '質問内容を入力してください',
+        return [
+            'content' => '「内容」'
         ];
     }
+
+    // public function messages()
+    // {
+    //     return[
+    //         'content.required' => '質問内容を入力してください',
+    //     ];
+    // }
 }

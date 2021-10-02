@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\AnswerRequest;
 
-class CreateQuestion extends FormRequest
+class EditAnswer extends AnswerRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,17 +24,13 @@ class CreateQuestion extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|max:50',
-            'content' => 'required',
-        ];
+        $rule = parent::rules();
+        return $rule;
     }
 
     public function attributes()
     {
-        return [
-            'title' => '「タイトル」',
-            'content' => '「内容」',
-        ];
+        $attribute = parent::attributes();
+        return $attribute;
     }
 }

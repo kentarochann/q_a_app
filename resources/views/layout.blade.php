@@ -36,5 +36,6 @@
     >
       <small>©2021 - Kentaro Henmi</small>
     </footer> --}}
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

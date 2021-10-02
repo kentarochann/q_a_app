@@ -33,6 +33,7 @@ class QuestionController extends Controller
             'question' => $question,
             'answers' => $answers,
         ]);
+
     }
 
     public function create()
