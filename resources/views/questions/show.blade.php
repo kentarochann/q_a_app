@@ -6,7 +6,7 @@
             <div class="border-bottom h5 pl-3">{{ $question->title }}</div>
             <div class="pl-5">
                 <div class="pl-5">
-                    <div>{{ $question->content }}</div>
+                    <div>{!! nl2br(e($question->content)) !!}</div>
                 </div>
                 <div class="d-flex justify-content-end">
                     <div class="pr-3">
@@ -34,7 +34,7 @@
                     @foreach($answers as $answer)
                         <div class="border rounded mb-2 p-3">
                             {{-- 回答の表示 --}}
-                            <div>{{ $answer->content }}</div>
+                            <div>{!! nl2br(e($answer->content)) !!}</div>
                             <div class="pr-3 pb-3 d-flex justify-content-end">
                                 {{ $answer->formatted_created_at }}
                             </div>

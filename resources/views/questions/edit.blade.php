@@ -10,7 +10,7 @@
                 <div>タイトル：{{ $question->title }}</div>
             </div>
             <div class="pl-5">
-                <div>内容：{{ $question->content }}</div>
+                <div>内容：{!! nl2br(e($question->content)) !!}</div>
             </div>
             <div class="d-flex justify-content-end">
                 <div class="pr-3">
