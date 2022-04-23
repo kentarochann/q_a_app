@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuestionApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::get('/', [QuestionApiController::class, 'index'])->name('questions.index');
+Route::resource('questions', QuestionApiController::class)->only(['show', 'store', 'update', 'destroy']);
+// Route::resource('questions.answers', AnswerApiController::class)->only(['store', 'destroy', 'update']);
