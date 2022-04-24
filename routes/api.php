@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerApiController;
 use App\Http\Controllers\QuestionApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,4 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', [QuestionApiController::class, 'index'])->name('questions.index');
 Route::resource('questions', QuestionApiController::class)->only(['show', 'store', 'update', 'destroy']);
-// Route::resource('questions.answers', AnswerApiController::class)->only(['store', 'destroy', 'update']);
+Route::resource('questions.answers', AnswerApiController::class)->only(['store', 'destroy', 'update']);
